@@ -10,8 +10,8 @@ import {
   DeleteDateColumn,
 } from 'typeorm';
 
-import { Roles } from 'src/entities/roles.entity';
-import { Gender } from 'src/entities/gender.entity';
+import { Roles } from './roles.entity';
+import { Gender } from './gender.entity';
 
 @Entity()
 export class Users {

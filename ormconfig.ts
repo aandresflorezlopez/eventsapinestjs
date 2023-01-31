@@ -1,4 +1,10 @@
+import { join } from 'path';
 import { DataSourceOptions, DataSource } from 'typeorm';
+
+// fucking error about how I was importing entities and migrations:
+// https://stackoverflow.com/questions/59435293/typeorm-entity-in-nestjs-cannot-use-import-statement-outside-a-module
+// use: entities: [join(__dirname, '**', '*.entity.{ts,js}')]
+// instead of: entities: [__dirname + '/../**/*.entity{.ts,.js}']
 
 export const ormconfig: DataSourceOptions = {
   type: 'mysql',
@@ -9,9 +15,9 @@ export const ormconfig: DataSourceOptions = {
   database: 'events',
   synchronize: true,
   logging: true,
-  entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+  entities: [join(__dirname, '**', '*.entity.{ts,js}')],
   migrationsTableName: 'migrations',
-  migrations: [__dirname + '/../**/*.migration{.ts,.js}'],
+  migrations: [join(__dirname, '**', '*.migration.{ts,js}')],
 };
 
 export const connectionSource = new DataSource(ormconfig);
