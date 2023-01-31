@@ -12,7 +12,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./../:/usr/src
+      - ./../:/usr/app
     command: npm run start:dev
 
   db:

@@ -13,6 +13,9 @@ export class Gender {
   id: number;
 
   @Column()
+  key: string;
+
+  @Column()
   name: string;
 
   @CreateDateColumn({

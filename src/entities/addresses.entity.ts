@@ -1,4 +1,3 @@
-import { Users } from 'src/users/users.entity';
 import {
   Column,
   Entity,
@@ -10,6 +9,7 @@ import {
   DeleteDateColumn,
 } from 'typeorm';
 
+import { Users } from './users.entity';
 @Entity()
 export class Addresses {
   @PrimaryGeneratedColumn()
