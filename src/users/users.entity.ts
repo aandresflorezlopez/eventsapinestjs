@@ -1,4 +1,17 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+  OneToOne,
+  Generated,
+  CreateDateColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+} from 'typeorm';
+
+import { Roles } from 'src/entities/roles.entity';
+import { Gender } from 'src/entities/gender.entity';
 
 @Entity()
 export class Users {
@@ -6,5 +19,50 @@ export class Users {
   id: number;
 
   @Column()
+  @Generated('uuid')
+  uuid: string;
+
+  @Column()
   name: string;
+
+  @Column({ name: 'last_name' })
+  lastName: string;
+
+  @Column()
+  email: string;
+
+  @Column()
+  password: string;
+
+  @Column({ name: 'country_code' })
+  countryCode: number;
+
+  @Column()
+  phone: number;
+
+  @OneToOne(() => Gender)
+  @JoinColumn({ name: 'fk_gender_id' })
+  fkGenderId: Gender;
+
+  @OneToOne(() => Roles)
+  @JoinColumn({ name: 'fk_role_id' })
+  fkRoleId: Roles;
+
+  @CreateDateColumn({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP(6)',
+  })
+  public created_at: Date;
+
+  @UpdateDateColumn({
+    type: 'timestamp',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
+  public updated_at: Date;
+
+  @DeleteDateColumn({
+    type: 'timestamp',
+    onUpdate: 'CURRENT_TIMESTAMP(6)',
+  })
+  public deleted_at: Date;
 }
