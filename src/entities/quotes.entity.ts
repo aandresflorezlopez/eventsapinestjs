@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   DeleteDateColumn,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
 } from 'typeorm';
 import { FoodService } from './food.service.entity';
 
@@ -33,7 +33,7 @@ export class Quotes {
   @Column({ name: 'made_contact' })
   madeContact: boolean;
 
-  @OneToOne(() => FoodService)
+  @ManyToOne(() => FoodService)
   @JoinColumn({ name: 'fk_food_service_id' })
   fkFoodServiceId: FoodService;
 

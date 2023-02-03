@@ -3,7 +3,7 @@ import {
   Column,
   PrimaryGeneratedColumn,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   Generated,
   CreateDateColumn,
   UpdateDateColumn,
@@ -40,11 +40,11 @@ export class Users {
   @Column()
   phone: number;
 
-  @OneToOne(() => Gender)
+  @ManyToOne(() => Gender)
   @JoinColumn({ name: 'fk_gender_id' })
   fkGenderId: Gender;
 
-  @OneToOne(() => Roles)
+  @ManyToOne(() => Roles)
   @JoinColumn({ name: 'fk_role_id' })
   fkRoleId: Roles;
 

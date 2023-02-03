@@ -2,7 +2,7 @@ import {
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
   CreateDateColumn,
   UpdateDateColumn,
@@ -33,7 +33,7 @@ export class FoodService {
   @Column({ name: 'pruce_by_user' })
   priceByUser: number;
 
-  @OneToOne(() => SuppliersServices)
+  @ManyToOne(() => SuppliersServices)
   @JoinColumn({ name: 'fk_supplier_service_id' })
   fkSupplierServiceId: SuppliersServices;
 

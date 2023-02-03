@@ -20,13 +20,16 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "seed:config": "ts-node ./node_modules/typeorm-seeding/dist/cli.js config",
     "seed:run": "ts-node ./node_modules/typeorm-seeding/dist/cli.js seed",
-    "schema:drop": "ts-node ./node_modules/typeorm/cli.js schema:drop",
-    "schema:sync": "ts-node ./node_modules/typeorm/cli.js schema:sync"
+    "schema:drop": "ts-node ./node_modules/typeorm/cli.js schema:drop -d ./ormconfig.ts",
+    "schema:sync": "ts-node ./node_modules/typeorm/cli.js schema:sync -d ./ormconfig.ts",
+    "migration:run": "npx typeorm-ts-node-commonjs migration:run -d ./ormconfig.ts",
+    "migration:revert": "npx typeorm-ts-node-commonjs migration:revert -d ./ormconfig.ts"
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/swagger": "^6.1.4",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0",

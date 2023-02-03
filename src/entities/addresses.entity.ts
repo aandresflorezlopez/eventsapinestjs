@@ -3,7 +3,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
@@ -27,7 +27,7 @@ export class Addresses {
   @Column({ name: 'complement_address' })
   complementAddress: string;
 
-  @OneToOne(() => Users)
+  @ManyToOne(() => Users)
   @JoinColumn({ name: 'fk_user_id' })
   fkUsersId: Users;
 

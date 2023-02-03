@@ -71,3 +71,12 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## Useful commands
+
+```bash
+
+INSERT INTO `events`.`users` (`uuid`, `name`, `last_name`, `email`, `password`, `country_code`, `phone`, `fk_gender_id`, `fk_role_id`) VALUES ('uuid-2', 'Andres', 'Florez', 'andres001ste@gmail.com', '0192023a7bbd73250516f069df18b500', '57', '11', 1, 2);
+
+
+```

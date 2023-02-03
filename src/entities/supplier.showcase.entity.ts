@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
   DeleteDateColumn,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
 } from 'typeorm';
 import { Suppliers } from './suppliers.entity';
 
@@ -27,7 +27,7 @@ export class SupplierShowcase {
   @Column({ name: 'did_at', type: 'date' })
   didAt: string;
 
-  @OneToOne(() => Suppliers)
+  @ManyToOne(() => Suppliers)
   @JoinColumn({ name: 'fk_supplier_id' })
   fkSupplierId: Suppliers;
 

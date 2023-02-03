@@ -13,7 +13,7 @@ import {
   UpdateDateColumn,
   DeleteDateColumn,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
 } from 'typeorm';
 import { SuppliersServices } from './suppliers.services.entity';
 import { Users } from './users.entity';
@@ -29,11 +29,11 @@ export class SupplierRates {
   @Column()
   description: string;
 
-  @OneToOne(() => Users)
+  @ManyToOne(() => Users)
   @JoinColumn({ name: 'fk_customer_id' })
   fkCustomerId: Users;
 
-  @OneToOne(() => SuppliersServices)
+  @ManyToOne(() => SuppliersServices)
   @JoinColumn({ name: 'fk_supplier_service_id' })
   fkSupplierServiceId: SuppliersServices;
 

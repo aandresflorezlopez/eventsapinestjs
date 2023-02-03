@@ -3,7 +3,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   JoinColumn,
-  OneToOne,
+  ManyToOne,
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
@@ -24,15 +24,15 @@ export class SuppliersServices {
   @Column()
   description: string;
 
-  @OneToOne(() => ServiceZones)
+  @ManyToOne(() => ServiceZones)
   @JoinColumn({ name: 'fk_service_zone_key' })
   fkServiceZoneKey: ServiceZones;
 
-  @OneToOne(() => Suppliers)
+  @ManyToOne(() => Suppliers)
   @JoinColumn({ name: 'fk_supplier_id' })
   fkSupplierId: Suppliers;
 
-  @OneToOne(() => SuppliersCategories)
+  @ManyToOne(() => SuppliersCategories)
   @JoinColumn({ name: 'fk_supplier_category_key' })
   fkCategoryKey: SuppliersCategories;
 

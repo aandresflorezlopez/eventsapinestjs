@@ -4,7 +4,7 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Generated,
-  OneToOne,
+  ManyToOne,
   JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
@@ -26,7 +26,7 @@ export class Suppliers {
   @Column({ name: 'service_at', type: 'date' })
   serviceAt: string;
 
-  @OneToOne(() => Users)
+  @ManyToOne(() => Users)
   @JoinColumn({ name: 'fk_user_id' })
   fkUsersId: Users;
 
