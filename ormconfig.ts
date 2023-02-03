@@ -21,3 +21,5 @@ export const ormconfig: DataSourceOptions = {
 };
 
 export const connectionSource = new DataSource(ormconfig);
+
+export default ormconfig;
