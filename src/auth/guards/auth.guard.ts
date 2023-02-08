@@ -1,3 +1,11 @@
+/**
+ * Custom guard to validate if all requests have authToken.
+ * The authToken value for this guard is 123456. It should be a env variable
+ * ```
+ *  AUTH_TOKEN=ANY_STRING
+ * ```
+ */
+
 import {
   CanActivate,
   ExecutionContext,
