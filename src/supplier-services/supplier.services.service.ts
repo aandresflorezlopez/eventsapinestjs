@@ -1,6 +1,6 @@
 import { Repository } from 'typeorm';
 import { Injectable, Inject } from '@nestjs/common';
-import { SupplierServicesList } from '../dtos/supplier.services.list.dto';
+import { SupplierServicesList } from '../dtos/supplier.services.dto';
 
 import { SuppliersServices } from '../entities/suppliers.services.entity';
 
