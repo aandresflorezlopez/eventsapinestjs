@@ -7,6 +7,8 @@ import {
   DeleteDateColumn,
 } from 'typeorm';
 
+import { Exclude } from 'class-transformer';
+
 @Entity()
 export class SuppliersCategories {
   @PrimaryColumn('varchar', { length: 100 })
@@ -18,18 +20,21 @@ export class SuppliersCategories {
   @Column()
   description: string;
 
+  @Exclude()
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
   })
   public created_at: Date;
 
+  @Exclude()
   @UpdateDateColumn({
     type: 'timestamp',
     onUpdate: 'CURRENT_TIMESTAMP(6)',
   })
   public updated_at: Date;
 
+  @Exclude()
   @DeleteDateColumn({
     type: 'timestamp',
     onUpdate: 'CURRENT_TIMESTAMP(6)',

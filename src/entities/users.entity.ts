@@ -38,7 +38,7 @@ export class Users {
   countryCode: number;
 
   @Column()
-  phone: number;
+  phone: string;
 
   @ManyToOne(() => Gender)
   @JoinColumn({ name: 'fk_gender_id' })

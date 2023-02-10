@@ -9,6 +9,8 @@ import {
   DeleteDateColumn,
 } from 'typeorm';
 
+import { Exclude, Expose } from 'class-transformer';
+
 import { SuppliersCategories } from './suppliers.categories.entity';
 import { Suppliers } from './suppliers.entity';
 import { ServiceZones } from './service.zones.entity';
@@ -19,35 +21,41 @@ export class SuppliersServices {
   id: number;
 
   @Column()
-  name: string;
+  public name: string;
 
   @Column()
-  description: string;
+  public description: string;
 
-  @ManyToOne(() => ServiceZones)
+  @Expose({ name: 'serviceZone' })
+  @ManyToOne(() => ServiceZones, { eager: true })
   @JoinColumn({ name: 'fk_service_zone_key' })
   fkServiceZoneKey: ServiceZones;
 
-  @ManyToOne(() => Suppliers)
+  @Expose({ name: 'supplier' })
+  @ManyToOne(() => Suppliers, { eager: true })
   @JoinColumn({ name: 'fk_supplier_id' })
   fkSupplierId: Suppliers;
 
-  @ManyToOne(() => SuppliersCategories)
+  @Expose({ name: 'category' })
+  @ManyToOne(() => SuppliersCategories, { eager: true })
   @JoinColumn({ name: 'fk_supplier_category_key' })
   fkCategoryKey: SuppliersCategories;
 
+  @Exclude()
   @CreateDateColumn({
     type: 'timestamp',
     default: () => 'CURRENT_TIMESTAMP(6)',
   })
   public created_at: Date;
 
+  @Exclude()
   @UpdateDateColumn({
     type: 'timestamp',
     onUpdate: 'CURRENT_TIMESTAMP(6)',
   })
   public updated_at: Date;
 
+  @Exclude()
   @DeleteDateColumn({
     type: 'timestamp',
     onUpdate: 'CURRENT_TIMESTAMP(6)',

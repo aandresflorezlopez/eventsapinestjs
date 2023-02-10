@@ -74,9 +74,25 @@ Nest is [MIT licensed](LICENSE).
 
 ## Useful commands
 
-```bash
+Create user
 
+```bash
 INSERT INTO `events`.`users` (`uuid`, `name`, `last_name`, `email`, `password`, `country_code`, `phone`, `fk_gender_id`, `fk_role_id`)
 VALUES ('uuid-2', 'Andres', 'Florez', 'andres001ste@gmail.com', '0192023a7bbd73250516f069df18b500', '57', '11', 2, 1);
 
+```
+
+Create supplier service
+
+- have service zone
+- have supplier categories
+- create user
+- create supplier
+
+```bash
+INSERT INTO `events`.`suppliers` (`uuid`, `logo_path`, `service_at`, `fk_user_id`) VALUES ('uuid-3', '/folder-name/image.png', '2023-02-03', '3');
+```
+
+```bash
+INSERT INTO `events`.`suppliers_services` (`id`, `name`, `description`, `fk_service_zone_key`, `fk_supplier_id`, `fk_supplier_category_key`) VALUES ('2', 'Van 16 puestos', 'Van de 16 puestos [origen bogota]', 'CO/BOG', '1', 'transport');
 ```
