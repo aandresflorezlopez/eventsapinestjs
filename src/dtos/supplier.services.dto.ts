@@ -10,3 +10,14 @@ export class SupplierServicesList {
   @ApiProperty()
   description: string;
 }
+
+export class SupplierServicesFilter {
+  @ApiProperty()
+  supplierId?: number;
+
+  @ApiProperty()
+  category?: string;
+
+  @ApiProperty()
+  name?: string;
+}

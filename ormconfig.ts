@@ -14,7 +14,7 @@ export const ormconfig: DataSourceOptions = {
   password: 'root',
   database: 'events',
   synchronize: true,
-  logging: true,
+  logging: false,
   entities: [join(__dirname, '**', '*.entity.{ts,js}')],
   migrationsTableName: 'migrations',
   migrations: [join(__dirname, '**', '*.migration.{ts,js}')],

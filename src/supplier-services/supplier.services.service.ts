@@ -14,4 +14,12 @@ export class SupplierServicesService {
   async findAll(): Promise<SupplierServicesList[]> {
     return this.suppliersServicesRepository.find();
   }
+
+  async findOneBySupplierId(
+    supplierId: number,
+  ): Promise<SupplierServicesList[]> {
+    return this.suppliersServicesRepository.find({
+      where: { fkSupplierId: { id: supplierId } },
+    });
+  }
 }

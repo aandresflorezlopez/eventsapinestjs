@@ -2,6 +2,7 @@ import {
   ClassSerializerInterceptor,
   Controller,
   Get,
+  Query,
   UseGuards,
   UseInterceptors,
 } from '@nestjs/common';
@@ -19,7 +20,9 @@ export class SupplierServicesController {
 
   @Get()
   @UseGuards(AuthGuard)
-  async findAll(): Promise<SupplierServicesList[]> {
+  async findAll(@Query() queryParams: string): Promise<SupplierServicesList[]> {
+    const params = new URLSearchParams(queryParams);
+    console.log(params);
     return this.suppliersServicesService.findAll();
   }
 }
